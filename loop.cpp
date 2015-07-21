@@ -19,17 +19,21 @@ int main()
 		p=p->next;
 		p->i=cnt;
 		cnt++;
-		p->next=NULL;
+		if(cnt ==9)
+		p->next=head->next;
+		else p->next=NULL;
+
 	}
-	p->next=head->next;
+	//cout<<"\n p's next newly: "<<p->next->i;
 	node *slo, *fast;
-	slo=head; fast=head;
+	int o=0;
+	slo=head; fast=head->next;
 	while( slo!=NULL && fast !=NULL)
 	{	cout<<"\n running ";
 		if(slo==fast)
 		{
 			cout<<"\n Loop at "<< slo->i;
-			slo=NULL;
+			break;
 		}
 		else
 		{
@@ -37,4 +41,6 @@ int main()
 			fast=fast->next->next;
 		}
 	}
+	if (slo==NULL || fast ==NULL)
+		cout<<"\n No loop";
 }
