@@ -3,11 +3,19 @@
 using namespace  std;
 int main()
 { 	
-	char s[100];
+	string s;;
 	int i, j, len;
 	cout<<"\n Enter string to be reversed\t";
-	cin>>s;
-	len= strlen(s);
+	getline(cin,s);
+	for(i=0;s[i];i++);
+	len=i;
+	if(s[0]=='\0')
+	{
+		cout<<"\n NULL string, eh?";
+		cout<<"\n Reversed string:\t"<<s<<endl;
+	}
+	else
+	{
 	for(i=0, j=len-1; i<j; i++, j--)
 	{
 		char p=s[i];
@@ -15,5 +23,6 @@ int main()
 		s[j]=p;
 	}
 	cout<<"\n Reversed string:\t"<<s<<endl;
+	}
 }
 
