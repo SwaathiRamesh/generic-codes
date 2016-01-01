@@ -52,6 +52,7 @@ void display( node *head)
 main()
 {
 int i;
+node *head=NULL;
 for(i=0;i<10;i++)
 	insert_node(head,2*i+42);
 display(head);
