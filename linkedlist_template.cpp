@@ -49,12 +49,44 @@ void display( node *head)
 	}
 
 }
+void delete_node( int n, node *&head)
+{
+	if(!head) return;
+	node *p=head, *prev;
+	int y=0;
+	while(p)
+	{
+		if(p->n==n)
+		{
+			y=1;
+			if(p==head)
+			{
+				node *q=head;
+				head=head->next;
+				delete(q);
+			}
+			else
+			{
+				node *q=p;
+				prev->next=q->next;
+				delete(q);
+			}
+		}
+		prev=p;
+		p=p->next;
+	}
+	if(!y) cout<<"\n Element not found !";
+}
+
 main()
 {
 int i;
 node *head=NULL;
 for(i=0;i<10;i++)
 	insert_node(head,2*i+42);
+display(head);
+cout<<"\n Deleting 48"<<endl;
+delete_node(48, head);
 display(head);
 free_nodes(head);
 display(head);
